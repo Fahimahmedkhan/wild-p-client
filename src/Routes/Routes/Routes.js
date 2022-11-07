@@ -3,6 +3,7 @@ import ClientAuthLayout from "../../layout/ClientAuthLayout";
 import ClientMainLayout from "../../layout/ClientMainLayout";
 import Blogs from "../../page/Home/Blogs/Blogs";
 import Home from "../../page/Home/Home/Home";
+import Profile from "../../page/Home/Profile/Profile";
 import Login from "../../page/Login/Login";
 import SignUp from "../../page/SignUp/SignUp";
 
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
+            },
+            {
+                path: '/profile',
+                element: <Profile></Profile>
             }
         ]
     },
