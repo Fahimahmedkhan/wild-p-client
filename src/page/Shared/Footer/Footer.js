@@ -44,7 +44,7 @@ const Footer = () => {
                             <span className="label-text text-white">GET UPDATES</span>
                         </label>
                         <div className="relative text-black">
-                            <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16" />
+                            <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16 text-white" />
                             <button className="btn absolute top-0 right-0 rounded-l-none">Subscribe</button>
                         </div>
                     </div>
