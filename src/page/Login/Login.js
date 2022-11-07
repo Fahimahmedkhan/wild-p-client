@@ -11,8 +11,8 @@ const Login = () => {
                     <form className="form">
                         <h2>Sign in</h2>
                         <div className="inputBox">
-                            <input type="text" required="required" />
-                            <span>Username</span>
+                            <input type="email" required="required" />
+                            <span>Email</span>
                             <i></i>
                         </div>
                         <div className="inputBox">
@@ -22,7 +22,7 @@ const Login = () => {
                         </div>
                         <div className="links">
                             <Link to='/'>Forgot Password?</Link>
-                            <Link to='/auth/register'>SignUp</Link>
+                            <Link to='/auth/register'>Sign Up</Link>
                         </div>
                         <div className='flex justify-between items-center'>
                             <input type="submit" value="Login" />

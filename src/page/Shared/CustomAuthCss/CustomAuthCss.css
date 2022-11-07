@@ -6,6 +6,10 @@
     border-radius: 10px;
     overflow: hidden;
 }
+.box2{
+    width: 390px;
+    height: 480px;
+}
 
 .box::before{
     content: '';
@@ -111,6 +115,7 @@
 
 .links{
     display: flex;
+    font-size: 20px;
     justify-content: space-between;
 }
 
@@ -131,7 +136,7 @@ input[type="submit"]{
     outline: none;
     background: #45f3ff;
     padding: 11px 25px;
-    width: 100px;
+    width: 110px;
     margin-top: 10px;
     border-radius: 4px;
     font-weight: 600;
