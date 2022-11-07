@@ -14,6 +14,20 @@ const Header = () => {
             .then(() => { })
             .catch(error => console.error(error))
     }
+    const privilegeCondition = () => {
+        if (user?.email === 'admin@gmail.com') {
+            return <>
+                <li><Link className='hover:text-orange-600' to='/allReviews'><FaBlog />All Reviews</Link></li>
+                <li><Link className='hover:text-orange-600' to='/myCollections'><FaBlog />My Collections</Link></li>
+            </>
+        }
+        else if (user?.uid) {
+            return <>
+                <li><Link className='hover:text-orange-600' to='/myReviews'><FaBlog />My Reviews</Link></li>
+            </>
+        }
+    }
+
     return (
         <div>
             <div className="navbar bg-gray-800 text-white">
@@ -39,6 +53,16 @@ const Header = () => {
                     <ul className="menu menu-horizontal p-0">
                         {/* This section will change after authentication is done */}
                         <li><Link className='hover:text-orange-600' to='/'><FaHome />Home</Link></li>
+                        {
+                            user?.uid ?
+                                <>
+                                    {
+                                        privilegeCondition()
+                                    }
+                                </>
+                                :
+                                <></>
+                        }
                         <li><Link className='hover:text-orange-600' to='/blogs'><FaBlog />Blogs</Link></li>
                     </ul>
                 </div>
@@ -54,6 +78,11 @@ const Header = () => {
                                     </div>
                                 </label>
                                 <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-600 text-white rounded-box w-52">
+                                    <li>
+                                        {
+                                            user.displayName
+                                        }
+                                    </li>
                                     <li><Link className='hover:text-orange-600' to='/profile'><ImProfile />Profile</Link></li>
                                     <li><button onClick={handleLogOut} className='hover:text-orange-600'><FiLogOut />Logout</button></li>
                                 </ul>

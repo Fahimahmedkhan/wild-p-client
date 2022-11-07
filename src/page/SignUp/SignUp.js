@@ -22,7 +22,7 @@ const SignUp = () => {
         event.preventDefault();
         setSuccess(false);
         const form = event.target;
-        const name = form.name.value;
+        const name = form.userName.value;
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
