@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo/logo.png';
+import { FaBlog, FaHome } from 'react-icons/fa';
+import { ImProfile } from 'react-icons/im';
+import { FiLogIn, FiLogOut } from 'react-icons/fi';
 
 const Header = () => {
     return (
@@ -13,8 +16,8 @@ const Header = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-600 text-white rounded-box w-52">
                             {/* This section will change after authentication is done */}
-                            <li><Link className='hover:text-orange-600' to='/'>Home</Link></li>
-                            <li><Link className='hover:text-orange-600' to='/blogs'>Blogs</Link></li>
+                            <li><Link className='hover:text-orange-600' to='/'><FaHome />Home</Link></li>
+                            <li><Link className='hover:text-orange-600' to='/blogs'><FaBlog />Blogs</Link></li>
                         </ul>
                     </div>
                     {/* Project Logo Section  */}
@@ -27,15 +30,14 @@ const Header = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
                         {/* This section will change after authentication is done */}
-                        <li><Link className='hover:text-orange-600' to='/'>Home</Link></li>
-                        <li><Link className='hover:text-orange-600' to='/blogs'>Blogs</Link></li>
+                        <li><Link className='hover:text-orange-600' to='/'><FaHome />Home</Link></li>
+                        <li><Link className='hover:text-orange-600' to='/blogs'><FaBlog />Blogs</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
                     {/* This section will change after authentication is done */}
-                    <div className='p-2'>
-                        <Link className='hover:text-orange-600 p-2' to='/auth/login'>Login</Link>
-                        <Link className='hover:text-orange-600' to='/auth/register'>Register</Link>
+                    <div className='p-2 w-20'>
+                        <Link className='hover:text-orange-600 flex justify-between items-center' to='/auth/login'><FiLogIn />Login</Link>
                     </div>
                     <div className="dropdown dropdown-end">
                         {/* Profile Picture Section */}
@@ -45,8 +47,8 @@ const Header = () => {
                             </div>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-600 text-white rounded-box w-52">
-                            <li><Link className='hover:text-orange-600' to='/profile'>Profile</Link></li>
-                            <li><button className='hover:text-orange-600'>Logout</button></li>
+                            <li><Link className='hover:text-orange-600' to='/profile'><ImProfile />Profile</Link></li>
+                            <li><button className='hover:text-orange-600'><FiLogOut />Logout</button></li>
                         </ul>
                     </div>
                     {/* This section will change after authentication is done */}
