@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo/logo.png';
 import { FaBlog, FaHome } from 'react-icons/fa';
 import { ImProfile } from 'react-icons/im';
 import { FiLogIn, FiLogOut } from 'react-icons/fi';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
     return (
         <div>
             <div className="navbar bg-gray-800 text-white">
@@ -36,21 +44,25 @@ const Header = () => {
                 </div>
                 <div className="navbar-end">
                     {/* This section will change after authentication is done */}
-                    <div className='p-2 w-20'>
-                        <Link className='hover:text-orange-600 flex justify-between items-center' to='/auth/login'><FiLogIn />Login</Link>
-                    </div>
-                    <div className="dropdown dropdown-end">
-                        {/* Profile Picture Section */}
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img src="https://placeimg.com/80/80/people" alt='' />
+                    {
+                        user?.uid ?
+                            <div className="dropdown dropdown-end">
+                                {/* Profile Picture Section */}
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img src={user.photoURL} alt='' />
+                                    </div>
+                                </label>
+                                <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-600 text-white rounded-box w-52">
+                                    <li><Link className='hover:text-orange-600' to='/profile'><ImProfile />Profile</Link></li>
+                                    <li><button onClick={handleLogOut} className='hover:text-orange-600'><FiLogOut />Logout</button></li>
+                                </ul>
                             </div>
-                        </label>
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-600 text-white rounded-box w-52">
-                            <li><Link className='hover:text-orange-600' to='/profile'><ImProfile />Profile</Link></li>
-                            <li><button className='hover:text-orange-600'><FiLogOut />Logout</button></li>
-                        </ul>
-                    </div>
+                            :
+                            <div className='p-2 w-20'>
+                                <Link className='hover:text-orange-600 flex justify-between items-center' to='/auth/login'><FiLogIn />Login</Link>
+                            </div>
+                    }
                     {/* This section will change after authentication is done */}
                 </div>
             </div>
