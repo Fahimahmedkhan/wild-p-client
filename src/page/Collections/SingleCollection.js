@@ -2,7 +2,7 @@ import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 
-const ThreeCollection = ({ collection }) => {
+const SingleCollection = ({ collection }) => {
     const { title, rating, description, photoURL } = collection;
     return (
         <div className="card bg-base-100 pt-2 shadow-xl">
@@ -25,4 +25,4 @@ const ThreeCollection = ({ collection }) => {
     );
 };
 
-export default ThreeCollection;
+export default SingleCollection;
