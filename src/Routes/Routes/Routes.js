@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import ClientAuthLayout from "../../layout/ClientAuthLayout";
 import ClientMainLayout from "../../layout/ClientMainLayout";
 import AllReviews from "../../page/AllReviews/AllReviews";
+import Collections from "../../page/Collections/Collections";
 import Blogs from "../../page/Home/Blogs/Blogs";
 import Home from "../../page/Home/Home/Home";
 import Profile from "../../page/Home/Profile/Profile";
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             {
                 path: '/myCollections',
                 element: <PrivateRoutes><MyCollections></MyCollections></PrivateRoutes>
+            },
+            {
+                path: '/collections',
+                element: <PrivateRoutes><Collections></Collections></PrivateRoutes>
             },
             {
                 path: '/myReviews',

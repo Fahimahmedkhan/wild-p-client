@@ -23,6 +23,7 @@ const Header = () => {
         }
         else if (user?.uid) {
             return <>
+                <li><Link className='hover:text-orange-600' to='/collections'><FaBlog />Collections</Link></li>
                 <li><Link className='hover:text-orange-600' to='/myReviews'><FaBlog />My Reviews</Link></li>
             </>
         }
