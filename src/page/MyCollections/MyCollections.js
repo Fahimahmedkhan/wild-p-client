@@ -1,11 +1,10 @@
 import React from 'react';
-import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { TabTitle } from '../../utils/GeneralFunction';
 import PhotoGalary from './PhotoGalary';
 
 const MyCollections = () => {
     TabTitle('MyCollections - WildP');
-    
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;

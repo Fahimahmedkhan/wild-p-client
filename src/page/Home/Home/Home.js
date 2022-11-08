@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from '../Banner/Banner';
 import picture1 from '../../../assets/image/image (1).jpg'
 import { Link } from 'react-router-dom';
@@ -7,9 +7,20 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { MdCollectionsBookmark } from 'react-icons/md';
 import { TabTitle } from '../../../utils/GeneralFunction';
+import ThreeCollection from '../ThreeCollection/ThreeCollection';
 
 const Home = () => {
     TabTitle('WildP');
+    const [collections, setCollections] = useState([]);
+
+    useEffect(() => {
+        fetch('https://wild-p-server.vercel.app/myPhotoCollection')
+            .then(res => res.json())
+            .then(data => {
+                setCollections(data);
+            })
+    }, []);
+
     return (
         <div className='mt-0'>
             <Banner></Banner>
@@ -28,9 +39,25 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <>
-                {/* data from mongodb will be here  */}
-            </>
+            <div>
+                <div className='grid grid-cols-3 gap-4 mt-10'>
+                    {/* data from mongodb will be here  */}
+                    {
+                        collections.map((collection, index) => {
+                            if (index < 3) {
+                                return <ThreeCollection
+                                    key={collection._id}
+                                    collection={collection}
+                                ></ThreeCollection>
+                            }
+                        })
+                    }
+                </div>
+                <div className='flex justify-center items-start mt-4 mb-4'>
+                    <Link to='/collections'><button className='btn'>See More...</button></Link>
+                </div>
+            </div>
+
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse gap-20">
                     <div className="text-center lg:text-left">
