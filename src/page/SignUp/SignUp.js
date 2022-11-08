@@ -5,8 +5,11 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import '../Shared/CustomAuthCss/CustomAuthCss.css';
 import { GoogleAuthProvider, GithubAuthProvider, FacebookAuthProvider, getAuth, updateProfile } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
+import { TabTitle } from '../../utils/GeneralFunction';
 
 const SignUp = () => {
+    TabTitle('SignUp - WildP');
+
     const { createUser, providerGmailLogin, providerGithubSignIn, providerFacebookSignIn } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();

@@ -1,6 +1,9 @@
 import React from 'react';
+import { TabTitle } from '../../../utils/GeneralFunction';
 
 const Blogs = () => {
+    TabTitle('Blog - WildP');
+
     return (
         <div className='m-10'>
             {/* FAQ 1 */}

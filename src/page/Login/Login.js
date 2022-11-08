@@ -3,9 +3,12 @@ import React, { useContext, useState } from 'react';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { TabTitle } from '../../utils/GeneralFunction';
 import '../Shared/CustomAuthCss/CustomAuthCss.css';
 
 const Login = () => {
+    TabTitle('Login - WildP');
+
     const { signIn, providerGmailLogin, providerGithubSignIn, providerFacebookSignIn, resetPassword } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();

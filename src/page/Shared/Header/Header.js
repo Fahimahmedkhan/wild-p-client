@@ -4,6 +4,7 @@ import logo from '../../../assets/logo/logo.png';
 import { FaBlog, FaHome } from 'react-icons/fa';
 import { ImProfile } from 'react-icons/im';
 import { FiLogIn, FiLogOut } from 'react-icons/fi';
+import { MdCollectionsBookmark, MdReviews } from 'react-icons/md';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
@@ -17,14 +18,14 @@ const Header = () => {
     const privilegeCondition = () => {
         if (user?.email === 'admin@gmail.com') {
             return <>
-                <li><Link className='hover:text-orange-600' to='/allReviews'><FaBlog />All Reviews</Link></li>
-                <li><Link className='hover:text-orange-600' to='/myCollections'><FaBlog />My Collections</Link></li>
+                <li><Link className='hover:text-orange-600' to='/allReviews'><MdReviews />All Reviews</Link></li>
+                <li><Link className='hover:text-orange-600' to='/myCollections'><MdCollectionsBookmark />My Collections</Link></li>
             </>
         }
         else if (user?.uid) {
             return <>
-                <li><Link className='hover:text-orange-600' to='/collections'><FaBlog />Collections</Link></li>
-                <li><Link className='hover:text-orange-600' to='/myReviews'><FaBlog />My Reviews</Link></li>
+                <li><Link className='hover:text-orange-600' to='/collections'><MdCollectionsBookmark />Collections</Link></li>
+                <li><Link className='hover:text-orange-600' to='/myReviews'><MdReviews />My Reviews</Link></li>
             </>
         }
     }

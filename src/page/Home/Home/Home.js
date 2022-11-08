@@ -5,8 +5,11 @@ import { Link } from 'react-router-dom';
 import Map from '../Map/Map';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import { MdCollectionsBookmark } from 'react-icons/md';
+import { TabTitle } from '../../../utils/GeneralFunction';
 
 const Home = () => {
+    TabTitle('WildP');
     return (
         <div className='mt-0'>
             <Banner></Banner>
@@ -21,7 +24,7 @@ const Home = () => {
                     <div>
                         <h1 className="text-5xl font-bold">What to expect!</h1>
                         <p className="py-6">WildP is a website full of collection of wildlife photography all over the world.</p>
-                        <Link to='/collections'><button className="btn btn-primary text-white text-xl">Collections</button></Link>
+                        <Link to='/collections'><button className="btn btn-primary text-white text-xl"><MdCollectionsBookmark />Collections</button></Link>
                     </div>
                 </div>
             </div>
