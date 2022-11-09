@@ -35,6 +35,8 @@ const MyReviews = () => {
         }
     }
 
+    
+
     return (
         <div className="grid card bg-base-300 rounded-box place-items-center p-4">
             <h1>My Reviews</h1>
@@ -57,6 +59,7 @@ const MyReviews = () => {
                                 key={review._id}
                                 review={review}
                                 handleDelete={handleDelete}
+                                
                             ></Row>)
                         }
                     </tbody>

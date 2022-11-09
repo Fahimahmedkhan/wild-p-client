@@ -22,7 +22,6 @@ const ReviewsRow = ({ review }) => {
                 {reviewName}
             </td>
             <td>{description}</td>
-
         </tr>
     );
 };

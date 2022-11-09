@@ -13,8 +13,9 @@ const MyCollections = () => {
         const description = form.description.value;
         const photoURL = form.photoURL.value;
         const photoFile = form.photoFile.value;
+        const date = new Date();
 
-        const MyCollections = { title, rating, description, photoURL, photoFile };
+        const MyCollections = { title, rating, description, photoURL, photoFile, date };
         console.log(MyCollections);
 
         fetch('https://wild-p-server.vercel.app/myPhotoCollection', {

@@ -11,8 +11,6 @@ const CheckReview = () => {
     const { user, logOut } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
 
-    // console.log(_id)
-
     useEffect(() => {
         fetch(`https://wild-p-server.vercel.app/reviewCollection?email=${user?.email}`)
             .then(res => {
