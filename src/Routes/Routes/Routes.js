@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import ClientAuthLayout from "../../layout/ClientAuthLayout";
 import ClientMainLayout from "../../layout/ClientMainLayout";
 import AllReviews from "../../page/AllReviews/AllReviews";
+import CheckReview from "../../page/CheckReview/CheckReview";
 import Collections from "../../page/Collections/Collections";
 import Blogs from "../../page/Home/Blogs/Blogs";
 import Home from "../../page/Home/Home/Home";
@@ -44,7 +45,12 @@ const router = createBrowserRouter([
             {
                 path: '/myReviews',
                 element: <PrivateRoutes><MyReviews></MyReviews></PrivateRoutes>
-            }
+            },
+            {
+                path: '/checkReview/:id',
+                element: <PrivateRoutes><CheckReview></CheckReview></PrivateRoutes>,
+                loader: ({ params }) => fetch(`https://wild-p-server.vercel.app/myPhotoCollection/${params.id}`)
+            },
         ]
     },
     {

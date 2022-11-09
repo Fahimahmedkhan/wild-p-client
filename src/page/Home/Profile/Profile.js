@@ -104,42 +104,6 @@ const Profile = () => {
                         </form>
                     </div>
                 </div>
-
-
-                {/* Put this part before </body> tag */}
-                {/* <input type="checkbox" id="my-modal" className="modal-toggle" />
-                <div className="modal ">
-                    <div className="modal-box bg-white">
-                        <form onSubmit={handleSubmit} className="form-control">
-                            <label className="label">
-                                <span className="label-text text-xl">Your Email</span>
-                            </label>
-                            <label className="input-group">
-                                <span className='bg-white dark:bg-black border-2'>Your Email</span>
-                                <input onChange={handleEmailChange} readOnly defaultValue={email} type="text" placeholder='Your Email' className="input input-bordered bg-white" />
-                            </label>
-
-                            <label className="label">
-                                <span className="label-text text-xl">Your Name</span>
-                            </label>
-                            <label className="input-group">
-                                <span className='bg-white dark:bg-black border-2'>Full Name</span>
-                                <input type="text" onChange={handleNameChange} defaultValue={name} placeholder='Full Name' className="input input-bordered bg-white" />
-                            </label>
-
-                            <label className="label">
-                                <span className="label-text text-xl">Your Photo URL</span>
-                            </label>
-                            <label className="input-group">
-                                <span className='bg-white dark:bg-black border-2'>Your Photo URL</span>
-                                <input onChange={handlePhotoURLChange} type="text" defaultValue={photoURL} placeholder='Your Photo URL' className="input input-bordered bg-white" />
-                            </label>
-                            <div className="modal-action">
-                                <button type='submit'><label htmlFor="my-modal" className="btn modal-button text-white text-xl font-bold border-0 dark:text-black bg-blue-600 hover:bg-orange-500">Edit</label></button>
-                            </div>
-                        </form>
-                    </div>
-                </div> */}
             </div>
         </div >
     );

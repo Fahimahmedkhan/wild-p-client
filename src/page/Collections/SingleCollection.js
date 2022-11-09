@@ -1,9 +1,10 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { Link } from 'react-router-dom';
 
 const SingleCollection = ({ collection }) => {
-    const { title, rating, description, photoURL } = collection;
+    const { _id, title, rating, description, photoURL } = collection;
     return (
         <div className="card bg-base-100 pt-2 shadow-xl">
             <figure>
@@ -18,7 +19,7 @@ const SingleCollection = ({ collection }) => {
                 <p className='p-2'>{description.slice(0, 100)} ...</p>
                 <p className='flex justify-start items-center text-xl'><FaStar className='mr-2 text-2xl' />{rating}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn">View Details</button>
+                    <Link to={`/checkReview/${_id}`}><button className="btn">View Details</button></Link>
                 </div>
             </div>
         </div>
