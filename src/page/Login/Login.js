@@ -106,7 +106,7 @@ const Login = () => {
                             <span>Password</span>
                             <i></i>
                         </div>
-                        <p className='text-2xl mx-4 my-4 text-red-800 dark:text-orange-600'>{error}</p>
+                        <p className='text-sm mx-4 my-4 text-red-800 dark:text-orange-600'>{error}</p>
                         <div className="links">
                             <button onClick={handelForgetPassword}>
                                 <p>Forgot Password?</p>

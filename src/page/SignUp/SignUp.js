@@ -120,7 +120,7 @@ const SignUp = () => {
                             <i></i>
                         </div>
                         {
-                            error && <p className='text-2xl mx-4 my-4 text-red-800 dark:text-orange-600'>{error}</p>
+                            error && <p className='text-sm mx-4 my-4 text-red-800 dark:text-orange-600'>{error}</p>
                         }
                         {
                             success && <p className='text-2xl mx-4 my-4 text-lime-500 dark:text-green-100'>User Created Successfully.</p>
