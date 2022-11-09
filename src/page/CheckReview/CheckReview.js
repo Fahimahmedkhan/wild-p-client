@@ -1,13 +1,32 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 import { FaStar } from 'react-icons/fa';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import SecondSection from './SecondSection';
 
 const CheckReview = () => {
     const { _id, title, rating, description, photoURL } = useLoaderData();
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    const [reviews, setReviews] = useState([]);
+
+    // console.log(_id)
+
+    useEffect(() => {
+        fetch(`https://wild-p-server.vercel.app/reviewCollection?email=${user?.email}`)
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return logOut();
+                }
+                return res.json();
+            })
+            .then(data => {
+                setReviews(data);
+            })
+    }, [user?.email, logOut])
+
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -26,7 +45,6 @@ const CheckReview = () => {
             description,
             photoURL
         }
-        console.log(review);
 
         fetch('https://wild-p-server.vercel.app/reviewCollection', {
             method: 'POST',
@@ -39,14 +57,12 @@ const CheckReview = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('Reviewed successfully')
+                    alert('Reviewed successfully');
                     form.reset();
-
                 }
             })
             .catch(er => console.error(er));
     }
-
 
     return (
         <div className="flex flex-col w-full">
@@ -70,11 +86,6 @@ const CheckReview = () => {
                     </div>
                 </div>
             </div>
-            <div className="divider"></div>
-            <div className="grid h-20 card bg-base-300 rounded-box place-items-center">
-                <h1>Others Review</h1>
-            </div>
-
             {/* Modal Style review option  */}
             <div>
                 <input type="checkbox" id="my-modal-6" className="modal-toggle" />
@@ -130,6 +141,13 @@ const CheckReview = () => {
                         </form>
                     </div>
                 </div>
+            </div>
+            <div className="divider"></div>
+            <div className="grid card bg-base-300 rounded-box place-items-center p-4">
+                <h1>Others Review</h1>
+                <SecondSection
+                    _id={_id}
+                ></SecondSection>
             </div>
         </div>
     );
