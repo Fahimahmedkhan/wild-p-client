@@ -14,9 +14,6 @@ const CheckReview = () => {
     useEffect(() => {
         fetch(`https://wild-p-server.vercel.app/reviewCollection?email=${user?.email}`)
             .then(res => {
-                if (res.status === 401 || res.status === 403) {
-                    return logOut();
-                }
                 return res.json();
             })
             .then(data => {
